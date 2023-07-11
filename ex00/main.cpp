@@ -6,7 +6,7 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:45:56 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/07/11 16:29:27 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/07/11 16:33:02 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ int main(int ac, char **av)
 				{
 					if (isvalid_num(num) && btc.getBitcoinPrice(date) != -1)
 						std::cout << date << " => " << num << " = " << (num * btc.getBitcoinPrice(date)) << std::endl;
-						
 				}
 				else
 					std::cerr << "Error: bad input => " << str << std::endl;
