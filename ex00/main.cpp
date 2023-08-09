@@ -6,7 +6,7 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:45:56 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/07/11 16:33:02 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/07/11 16:33:52 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int main(int ac, char **av)
 
 		BitcoinExchange btc("data.csv");
 		std::string	str;
+		
 		while (std::getline(ifs, str))
 		{
 			std::istringstream iss(str);
@@ -84,7 +85,6 @@ int main(int ac, char **av)
 			else
 				std::cerr << "Error: bad input => " << str << std::endl;
 		}
-		
-		return (0);
 	}
+	return (0);
 }
