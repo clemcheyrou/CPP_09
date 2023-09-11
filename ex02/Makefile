@@ -9,8 +9,7 @@ SRC_DIR		=	$(shell find . -type d)
 
 vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
 
-SRCS	 	=	PmergeMe.cpp \
-				main.cpp
+SRCS	 	=	main.cpp
 
 OBJS		=	$(SRCS:%.cpp=${OBJ_DIR}/%.o)
 

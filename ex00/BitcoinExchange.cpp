@@ -6,13 +6,16 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:47:15 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/07/11 16:10:20 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/09/11 14:39:39 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-//TODO: Gerer les cas d'erreur du fichier csv
+BitcoinExchange::BitcoinExchange()
+{
+}
+
 BitcoinExchange::BitcoinExchange(std::string file)
 {
 	std::ifstream ifs(file.c_str());
@@ -24,14 +27,19 @@ BitcoinExchange::BitcoinExchange(std::string file)
 	std::string	str;
     while (std::getline(ifs, str))
 	{
-        std::istringstream iss(str);
-        std::string date;
-        double num;
-        if (std::getline(iss, date, ',') && iss >> num)
-			_csv[date] = num;
+		if (str == "date,exchange_rate")
+			continue;
 		else
-			std::cout << "this line: " << str << " has no comma or bitcoin is not a number" << std::endl;
-    }
+		{
+			std::istringstream iss(str);
+			std::string date;
+			double num;
+			if (std::getline(iss, date, ',') && iss >> num)
+				_csv[date] = num;
+			else
+				std::cout << "this line: " << str << " has no comma or bitcoin is not a number" << std::endl;
+		}
+	}
 	ifs.close();
 	return ;
 }

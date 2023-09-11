@@ -6,33 +6,30 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 17:52:14 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/08/09 19:55:27 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:40:33 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include "PmergeMe.tpp"
 
-bool	checkInput(int ac, char **av)
+int main(int argc, char *argv[])
 {
-	for (int i = 1; i < ac; i++)
-		for (int j = 0; av[i][j] != '\0'; j++)
-			if (!std::isdigit(av[i][j]))
-				return (0);
-	return (1);
-}
-
-int main(int ac, char **av)
-{
-	if (ac < 2 || !checkInput(ac, av))
+	if (argc < 3)
 	{
-		std::cout << "Error: Wrong arguments" << std::endl;
+		std::cerr << "Usage: ./my_program + positive integer sequences" << std::endl;
 		return (1);
 	}
-	//Print arguments
-	for (int i = 1; i < ac; i++)
-		std::cout << av[i] << " ";
-	std::cout << std::endl;
 
-	PmergeMe pmergeme(ac - 1, av);
-	
+	PmergeMe<std::vector<int> >vectSorter;
+	std::vector<int> vect;
+
+	vectSorter.sort(vect, argc, argv);
+
+	PmergeMe<std::deque<int> > dequeSorter;
+    std::deque<int> deque;
+
+	dequeSorter.sort(deque, argc, argv);
+
+	return (0);
 }

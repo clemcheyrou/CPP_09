@@ -6,7 +6,7 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:48:05 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/07/11 14:49:23 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/09/11 14:01:39 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <fstream>
 # include <cstdlib>
 # include <map>
-# include <vector>
 # include <limits.h>
 
 # define ERROR_DOUBLE "Error: not a number."
@@ -36,6 +35,7 @@ class BitcoinExchange
 {
 	private:
 		std::map<std::string, double> _csv;
+		BitcoinExchange();
 	
 	public:
 
