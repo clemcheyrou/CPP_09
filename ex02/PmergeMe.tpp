@@ -6,7 +6,7 @@
 /*   By: ccheyrou <ccheyrou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 19:02:19 by ccheyrou          #+#    #+#             */
-/*   Updated: 2023/09/11 14:53:27 by ccheyrou         ###   ########.fr       */
+/*   Updated: 2023/09/11 18:02:29 by ccheyrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	PmergeMe<T>::fill(T &container, int ac, char **av)
 		if (isDigit(av[i]) && iss >> number && number >= 0)
 			container.push_back(number);
 		else
-			return (std::cerr << av[i] << " : is not a (+) integer" << std::endl, 1);
+			return (std::cerr << av[i] << "Wrong number" << std::endl, 1);
 	}
 	return (0);
 }
